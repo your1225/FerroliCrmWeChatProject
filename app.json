@@ -1,0 +1,20 @@
+{
+    "pages": [
+        "pages/launchScreen/launchScreen",
+        "pages/logs/logs",
+        "pages/userInfo/userInfo",
+        "pages/login/login"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "法罗力",
+        "navigationBarTextStyle": "black"
+    },
+    "useExtendedLib": {
+        "kbone": true,
+        "weui": true
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json"
+}

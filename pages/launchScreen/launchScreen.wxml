@@ -1,0 +1,7 @@
+<!--pages/launchScreen/launchScreen.wxml-->
+<view class="logo_wrap">
+  <image src="http://183.236.245.250:9011/WeChat/ferroli_logo_full.png" mode="widthFix" />
+  <view class="loading_text">
+    载入中，请稍后...
+  </view>
+</view>

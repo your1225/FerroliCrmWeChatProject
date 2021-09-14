@@ -1,0 +1,23 @@
+<!--pages/login/login.wxml-->
+<view>
+    <image src="http://183.236.245.250:9011/WeChat/menu_header.png" mode="widthFix" />
+</view>
+<view class="login_cap">
+    请输入您的登录信息
+</view>
+<view class="login_item">
+    <view class="login_item_content_wrap">
+        <input class="login_item_content" auto-focus placeholder="供应商编号" type="text" bindinput="usernameInput" />
+    </view>
+    <view class="login_item_content_wrap">
+        <input class="login_item_content" auto-focus placeholder="密码" type="text" password="true"
+            bindinput="passwordInput" />
+    </view>
+    <view>
+        <button bindtap="firstLogin" form-type="submit" type="primary"
+            style="width: 98%; margin-top: 50rpx;">登录</button>
+    </view>
+</view>
+<view class="login_tips">
+    *登录过程有任何问题，请咨询IT部门
+</view>
