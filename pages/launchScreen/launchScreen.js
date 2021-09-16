@@ -9,7 +9,7 @@ Page({
    * 看能不能自动登录，如果不能，就到登录页面
    */
     async autoLogin(wxUserCode) {
-        const reData = await request({ url: "/UserAccount/WeChatAutoLogin/" + wxUserCode });
+        const reData = await request({ url: "UserAccount/WeChatAutoLogin/" + wxUserCode });
         // console.log(wxUserCode);
         app.globalData.openid = reData.weChatOpenId;
         // console.log(reData);
@@ -17,11 +17,10 @@ Page({
         if (reData.isPass == true) {
             app.globalData.customLogin = reData;
             wx.reLaunch({
-                url: '/pages/userInfo/userInfo'
+                url: '/pages/partOrder/partOrder'
             })
             return;
         } else {
-
             wx.reLaunch({
                 url: '/pages/login/login'
             })

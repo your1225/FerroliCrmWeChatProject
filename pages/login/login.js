@@ -49,7 +49,7 @@ Page({
             // console.log("customLogin.weChatOpenId:  " + app.globalData.customLogin.weChatOpenId)
 
             wx.reLaunch({
-                url: '/pages/userInfo/userInfo'
+                url: '/pages/partOrder/partOrder'
             })
             return;
         } else {

@@ -1,4 +1,6 @@
 /**app.wxss**/
+@import "./styles/iconfont.wxss";
+
 .container {
   height: 100%;
   display: flex;
@@ -17,4 +19,8 @@ page {
   font-size: 28rpx;
   /* background-color: #f2f2f2; */
   background: #f2f2f2;
+}
+
+image {
+  width: 100%;
 }

@@ -1,20 +1,43 @@
 {
-    "pages": [
-        "pages/launchScreen/launchScreen",
-        "pages/logs/logs",
-        "pages/userInfo/userInfo",
-        "pages/login/login"
-    ],
-    "window": {
-        "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#fff",
-        "navigationBarTitleText": "法罗力",
-        "navigationBarTextStyle": "black"
-    },
-    "useExtendedLib": {
-        "kbone": true,
-        "weui": true
-    },
-    "style": "v2",
-    "sitemapLocation": "sitemap.json"
+  "pages": [
+    "pages/launchScreen/launchScreen",
+    "pages/login/login",
+    "pages/partOrder/partOrder",
+    "pages/partOrderSearch/partOrderSearch",
+    "pages/partOrderCheck/partOrderCheck"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "法罗力",
+    "navigationBarTextStyle": "black"
+  },
+  "useExtendedLib": {
+    "kbone": true,
+    "weui": true
+  },
+  "tabBar": {
+    "color": "#000",
+    "selectedColor": "#ff6600",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [{
+      "text": "生成",
+      "pagePath": "pages/partOrder/partOrder",
+      "iconPath": "images/tabbar_icon_po_default.png",
+      "selectedIconPath": "images/tabbar_icon_po_active.png"
+    }, {
+      "text": "查询",
+      "pagePath": "pages/partOrderSearch/partOrderSearch",
+      "iconPath": "images/tabbar_icon_po_search_default.png",
+      "selectedIconPath": "images/tabbar_icon_po_search_active.png"
+    }, {
+      "text": "检查",
+      "pagePath": "pages/partOrderCheck/partOrderCheck",
+      "iconPath": "images/tabbar_icon_po_check_default.png",
+      "selectedIconPath": "images/tabbar_icon_po_check_active.png"
+    }]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
 }
