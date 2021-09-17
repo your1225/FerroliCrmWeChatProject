@@ -1,2 +1,5 @@
 /* pages/partOrder/partOrder.wxss */
-.weui-label{width:3.1em}
+.test-cell {
+    border-width: 20px;
+    border-color: brown;
+}

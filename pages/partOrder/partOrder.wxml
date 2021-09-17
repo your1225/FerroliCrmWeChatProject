@@ -1,64 +1,58 @@
 <!--pages/partOrder/partOrder.wxml-->
-<view class="page" data-weui-theme="{{theme}}">
-    <view class="weui-form">
-        <view class="weui-form__text-area">
-            <h2 class="weui-form__title">二维码生成</h2>
-            <view class="weui-form__desc">请填写物料信息、生产日期、备注后保存，得到二维码。</view>
-        </view>
-        <view class="weui-form__control-area">
-            <view class="weui-cells__group weui-cells__group_form">
-                <view class="weui-cells__title">物料信息</view>
-                <view class="weui-cells weui-cells_form">
-                    <view class="weui-cell weui-cell_active">
-                        <view class="weui-cell__hd">物料</view>
-                        <view class="weui-cell__bd">
-                            <input class="weui-input" type="text" value="{{itemCode}}" placeholder="输入物料编码"
-                                placeholder-class="weui-input__placeholder" bindinput="bindItemCodeChange" />
-                        </view>
-                        <view class="weui-cell__ft">
-                            <a class="weui-btn weui-btn_default weui-vcode-btn" bindtap="handleGetMaterialInfo">获取</a>
-                        </view>
-                    </view>
-                    <view class="weui-cell weui-cell_active weui-cell_disabled">
-                        <view class="weui-cell__bd">{{itemName}}</view>
-                    </view>
+<mp-form-page title="二维码生成" subtitle="请填写物料信息、生产日期、备注后保存，得到二维码。">
+    <mp-form id="form">
+        <mp-cells title="物料信息">
+            <mp-cell ext-class="test-cell">
+                <view slot="title">物料</view>
+                <view>
+                    <input class="weui-input" type="text" value="{{itemCode}}" placeholder="输入物料编码"
+                        placeholder-class="weui-input__placeholder" bindinput="bindItemCodeChange" />
                 </view>
-            </view>
-            <view class="weui-cells__group weui-cells__group_form" style="margin-top: 10vw;">
-                <view class="weui-cells__title">订单信息</view>
-                <view class="weui-cells weui-cells_form">
-                    <view class="weui-cell weui-cell_active">
-                        <view class="weui-cell__hd">日期</view>
-                        <view class="weui-cell__ft">
-                            <picker mode="date" value="{{dtSelected}}" start="{{dtStart}}" end="{{dtEnd}}"
-                                bindchange="bindDateChange">
-                                <a class="weui-btn weui-btn_default">{{dtSelected}}</a>
-                            </picker>
-                        </view>
-                    </view>
-                    <view class="weui-cell weui-cell_active">
-                        <view class="weui-cell__hd">
-                            <label class="weui-label">数量</label>
-                        </view>
-                        <view class="weui-cell__bd">
-                            <input class="weui-input" placeholder="填写生产数量" type="number"
-                                placeholder-class="weui-input__placeholder" />
-                        </view>
-                    </view>
-                    <view class="weui-cells weui-cells_form">
-                        <view class="weui-cell">
-                            <view class="weui-cell__bd">
-                                <textarea class="weui-textarea" placeholder="填写PO号及其他备注信息"
-                                    placeholder-class="weui-input__placeholder" rows="3"></textarea>
-                                <view class="weui-textarea-counter"><span>0</span>/200</view>
-                            </view>
-                        </view>
-                    </view>
+                <view slot="footer">
+                    <a class="weui-btn weui-btn_default weui-vcode-btn" bindtap="handleGetMaterialInfo">获取</a>
                 </view>
-            </view>
-        </view>
-        <view class="weui-form__opr-area">
-            <a class="weui-btn weui-btn_primary">保存</a>
-        </view>
+            </mp-cell>
+            <mp-cell>
+                <view slot="title">
+                    <mp-icon icon="info" color="green" size="{{25}}"></mp-icon>
+                </view>
+                <view style="color: darkgreen;"> {{itemName}} </view>
+            </mp-cell>
+        </mp-cells>
+        <mp-cells title="订单信息">
+            <mp-cell>
+                <view slot="title">日期</view>
+                <view>
+                    <picker mode="date" value="{{dtSelected}}" start="{{dtStart}}" end="{{dtEnd}}"
+                        bindchange="bindDateChange">
+                        <a class="weui-btn weui-btn_default">{{dtSelected}}</a>
+                    </picker>
+                </view>
+            </mp-cell>
+            <mp-cell style="border-color: firebrick;">
+                <view slot="title">物料</view>
+                <view>
+                    <input class="weui-input" placeholder="填写生产数量" type="number" value="{{poNum}}"
+                        placeholder-class="weui-input__placeholder" bindinput="bindPoNumChange" />
+                </view>
+            </mp-cell>
+            <mp-cell>
+                <view>
+                    <textarea class="weui-textarea" placeholder="填写PO号及其他备注信息"
+                        placeholder-class="weui-input__placeholder" rows="3" value="{{poRemark}}"
+                        bindinput="bindPoRemarkChange"></textarea>
+                    <view class="weui-textarea-counter">200</view>
+                </view>
+            </mp-cell>
+        </mp-cells>
+    </mp-form>
+
+    <view slot="button">
+        <button class="weui-btn" type="primary" bindtap="saveData">保存</button>
     </view>
-</view>
+
+    <mp-half-screen-dialog bindbuttontap="closeAndCopy" show="{{savedDialog}}" mask="{{true}}" maskClosable="{{false}}"
+        title="{{savedTitle}}" desc="保存成功后，可复制二维码发送给要打印标签的同事。" buttons="{{dialogButtons}}" bindclose="closeSaveDialog">
+    </mp-half-screen-dialog>
+</mp-form-page>
+
