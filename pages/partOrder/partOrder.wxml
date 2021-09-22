@@ -2,7 +2,7 @@
 <mp-form-page title="二维码生成" subtitle="请填写物料信息、生产日期、备注后保存，得到二维码。">
     <mp-form id="form">
         <mp-cells title="物料信息">
-            <mp-cell ext-class="test-cell">
+            <mp-cell>
                 <view slot="title">物料</view>
                 <view>
                     <input class="weui-input" type="text" value="{{itemCode}}" placeholder="输入物料编码"
@@ -12,11 +12,11 @@
                     <a class="weui-btn weui-btn_default weui-vcode-btn" bindtap="handleGetMaterialInfo">获取</a>
                 </view>
             </mp-cell>
-            <mp-cell>
+            <mp-cell ext-class="item-cell">
                 <view slot="title">
                     <mp-icon icon="info" color="green" size="{{25}}"></mp-icon>
                 </view>
-                <view style="color: darkgreen;"> {{itemName}} </view>
+                <view> {{itemName}} </view>
             </mp-cell>
         </mp-cells>
         <mp-cells title="订单信息">
@@ -29,7 +29,7 @@
                     </picker>
                 </view>
             </mp-cell>
-            <mp-cell style="border-color: firebrick;">
+            <mp-cell>
                 <view slot="title">物料</view>
                 <view>
                     <input class="weui-input" placeholder="填写生产数量" type="number" value="{{poNum}}"
@@ -55,4 +55,3 @@
         title="{{savedTitle}}" desc="保存成功后，可复制二维码发送给要打印标签的同事。" buttons="{{dialogButtons}}" bindclose="closeSaveDialog">
     </mp-half-screen-dialog>
 </mp-form-page>
-

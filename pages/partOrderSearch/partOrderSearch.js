@@ -1,28 +1,44 @@
 // pages/partOrderSearch/partOrderSearch.js
+const app = getApp()
+
+import { request } from "../../request/request.js";
+import { addMonth, formatDateByH, addDay } from "../../utils/util.js"
+import { showToast } from "../../utils/asyncWx.js"
+
 Page({
     /**
      * 页面的初始数据
      */
     data: {
-        inputShowed: false,
-        inputVal: ""
+        dtStart: "2018-01-01",
+        dtEnd: "2021-01-01",
+        dtSelected: "2021-09-15",
+        poList: []
     },
-    search: function (value) {
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve([{text: '搜索结果', value: 1}, {text: '搜索结果2', value: 2}])
-            }, 200)
+
+    async getRecordList() {
+        const poCusNo = app.globalData.customLogin.cusNo;
+        const poDate = this.data.dtSelected;
+        const saveParams = { poCusNo, poDate }
+        const res = await request({ url: "PartOrder/GetModelListByDate", method: "POST", data: saveParams });
+        
+        this.setData({
+            poList: res
         })
-    },
-    selectResult: function (e) {
-        console.log('select result', e.detail)
-    },
+      },
+    
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        var nowDate = new Date(addDay(-7));
+        var startDate = new Date(addMonth(-12));
+        var endDate = new Date(addMonth(12));
+
         this.setData({
-            search: this.search.bind(this)
+            dtSelected: formatDateByH(nowDate),
+            dtStart: formatDateByH(startDate),
+            dtEnd: formatDateByH(endDate)
         })
     },
 

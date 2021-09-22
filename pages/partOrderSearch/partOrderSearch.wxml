@@ -1,10 +1,33 @@
 <!--pages/partOrderSearch/partOrderSearch.wxml-->
-<view class="page" data-weui-theme="{{theme}}">
-	<view class="page__hd">
-        <view class="page__title">SearchBar</view>
-        <view class="page__desc">搜索栏</view>
-    </view>
-    <view class="page__bd">
-        <mp-searchbar bindselectresult="selectResult" search="{{search}}"></mp-searchbar>
-    </view>
-</view>
+<!--pages/partOrder/partOrder.wxml-->
+<mp-form-page title="订单查询" subtitle="选择日期，可看到相应订单信息。">
+    <mp-form id="form">
+        <mp-cells title="查询条件">
+            <mp-cell>
+                <view slot="title">日期之前</view>
+                <view>
+                    <picker mode="date" value="{{dtSelected}}" start="{{dtStart}}" end="{{dtEnd}}"
+                        bindchange="bindDateChange">
+                        <a class="weui-btn weui-btn_default">{{dtSelected}}</a>
+                    </picker>
+                </view>
+            </mp-cell>
+        </mp-cells>
+        <mp-cells title="订单信息">
+            <block wx:for="{{poList}}" wx:key="poId">
+                <mp-cell>
+                    <view slot="title">{{item.poPrdNoPart}}</view>
+                    <view slot="footer">{{item.poNum}} </view>
+                    <view>{{item.poPrdNamePart}}</view>
+                    <view>
+                        <mp-select-text show-copy-btn value="{{item.poBarcodeHead}}" placement="bottom"></mp-select-text>
+                    </view>
+                </mp-cell>
+            </block>
+        </mp-cells>
+    </mp-form>
+
+    <mp-half-screen-dialog bindbuttontap="closeAndCopy" show="{{savedDialog}}" mask="{{true}}" maskClosable="{{false}}"
+        title="{{savedTitle}}" desc="保存成功后，可复制二维码发送给要打印标签的同事。" buttons="{{dialogButtons}}" bindclose="closeSaveDialog">
+    </mp-half-screen-dialog>
+</mp-form-page>

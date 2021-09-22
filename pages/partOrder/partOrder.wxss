@@ -1,5 +1,4 @@
 /* pages/partOrder/partOrder.wxss */
-.test-cell {
-    border-width: 20px;
-    border-color: brown;
+.item-cell {
+    background-color: rgb(245, 255, 245);
 }
