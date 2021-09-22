@@ -12,6 +12,10 @@
     "navigationBarTitleText": "法罗力",
     "navigationBarTextStyle": "black"
   },
+  "useExtendedLib": { 
+    "kbone": true, 
+    "weui": true 
+  }, 
   "tabBar": {
     "color": "#000",
     "selectedColor": "#ff6600",
