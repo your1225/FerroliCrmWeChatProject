@@ -1,5 +1,9 @@
 var dateFormatStr = function (dateStr) {
-    return dateStr.replace('T', ' ')
+    if (dateStr != null) {
+        return dateStr.replace('T', ' ').replace('00:00:00', '')
+    } else {
+        return ''
+    }    
 }
 var moneyFormat = function (money) {
     return parseFloat(money).toFixed(2);

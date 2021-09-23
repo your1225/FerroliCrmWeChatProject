@@ -1,9 +1,9 @@
 <!--pages/partOrderSearch/partOrderSearch.wxml-->
-<mp-form-page title="订单查询" subtitle="选择日期，可看到相应订单信息。">
+<mp-form-page title="订单查询" subtitle="选择日期，可看到相应订单信息。点右边按钮可复制二维码，左划可删除数据。">
     <mp-form id="form">
         <mp-cells title="查询条件">
             <mp-cell>
-                <view slot="title">最小日期</view>
+                <view slot="title">起始日期</view>
                 <view>
                     <picker mode="date" value="{{dtSelected}}" start="{{dtStart}}" end="{{dtEnd}}"
                         bindchange="bindDateChange">
@@ -13,35 +13,47 @@
             </mp-cell>
         </mp-cells>
         <mp-cells title="订单信息">
-            <block wx:for="{{poList}}" wx:key="poId">
-                <mp-cell hover="true">
-                    <view style="display: flex;justify-content: space-between;">
-                        <view>{{item.poPrdNoPart}}</view>
-                        <view style="display: flex;">
-                            <mp-icon type="outline" icon="time" size="{{20}}"></mp-icon>
-                            <view style="margin-top: 5rpx;">{{item.dayData}}</view>
-                        </view>
-                    </view>
-                    <view>{{item.poPrdNamePart}}</view>
-                    <view style="font-size: 25rpx;color: lightslategrey;">{{item.poBarcodeHead}}</view>
-                    <view style="display: flex;justify-content: space-around;margin-top: 20rpx;">
-                        <view style="display: flex;">
-                            <mp-icon type="field" icon="info" color="rgb(255, 150, 150)" size="{{15}}"></mp-icon>
-                            <view style="color: rgb(255, 150, 150); font-size: 25rpx;margin-top: 12rpx;">订单：</view>
-                            <view style="font-size: 50rpx;">{{item.poNum}} </view>
-                        </view>
-                        <view style="display: flex;">
-                            <mp-icon type="field" icon="done2" color="black" color="rgb(150, 255, 150)" size="{{15}}">
-                            </mp-icon>
-                            <view style="color: rgb(150, 255, 150); font-size: 25rpx;margin-top: 12rpx;">已收：</view>
-                            <view style="font-size: 50rpx;">{{item.poReceive}} </view>
-                        </view>
-                    </view>
-                    <view slot="footer" data-qrcode="{{item.poBarcodeHead}}" data-index="{{index}}" bindtap="bindCopyTap">
-                        <mp-icon type="outline" icon="copy" size="{{25}}"></mp-icon>
-                    </view>
-                </mp-cell>
+            <block wx:if="{{poList.length>0}}">
+                <block wx:for="{{poList}}" wx:key="poId">
+                    <mp-slideview buttons="{{slideButtons}}" data-index="{{index}}" bindbuttontap="slideButtonTap">
+                        <mp-cell hover="true">
+                            <view style="display: flex;justify-content: space-between;">
+                                <view>{{item.poPrdNoPart}}</view>
+                                <view style="display: flex;">
+                                    <mp-icon type="outline" icon="time" size="{{20}}"></mp-icon>
+                                    <view style="margin-top: 5rpx;">{{item.dayData}}</view>
+                                </view>
+                            </view>
+                            <view>{{item.poPrdNamePart}}</view>
+                            <view style="font-size: 25rpx;color: lightslategrey;">{{item.poBarcodeHead}}</view>
+                            <view style="display: flex;justify-content: space-around;margin-top: 20rpx;margin-bottom: 20rpx;">
+                                <view style="display: flex;">
+                                    <mp-icon type="field" icon="info" color="darkmagenta" size="{{20}}"></mp-icon>
+                                    <view style="color: darkmagenta;">订单：</view>
+                                    <view>{{item.poNum}}</view>
+                                </view>
+                                <view style="display: flex;">
+                                    <mp-icon type="field" icon="done2" color="green" size="{{20}}"></mp-icon>
+                                    <view style="color: green;">已收：</view>
+                                    <view>{{item.poReceive}}</view>
+                                </view>
+                            </view>
+                            <view style="display: flex;">
+                                <mp-icon type="outline" icon="comment" size="{{20}}" color="lightslategrey"></mp-icon>
+                                <view style="color: lightslategrey;">{{item.poRemark}}</view>
+                            </view>
+                            <view slot="footer" data-qrcode="{{item.poBarcodeHead}}" data-index="{{index}}"
+                                bindtap="bindCopyTap">
+                                <mp-icon type="outline" icon="copy" size="{{25}}"></mp-icon>
+                            </view>
+                        </mp-cell>
+                    </mp-slideview>
+                </block>
             </block>
+            <view class="rec_no_data" wx:else>
+                <image mode="widthFix" class="iconfont icon-meiyoudingdan"></image>
+                <view class="no_data_text" class="no_data_text">未发现订单数据</view>
+            </view>
         </mp-cells>
     </mp-form>
 
@@ -49,4 +61,8 @@
         maskClosable="{{false}}" title="{{savedTitle}}" desc="可复制二维码发送给要打印标签的同事。" buttons="{{dialogButtons}}"
         bindclose="closeShowDialog">
     </mp-half-screen-dialog>
+
+    <mp-dialog title="数据校验失败" show="{{showTipsDialog}}" bindbuttontap="tapDialogButton" buttons="{{tipsButtons}}">
+        <view>{{tipsText}}</view>
+    </mp-dialog>
 </mp-form-page>

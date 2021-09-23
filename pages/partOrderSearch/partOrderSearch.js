@@ -27,20 +27,52 @@ Page({
                 value: 1
             }
         ],
-        // 设置开始的位置
-        startX: 0,
-        startY: 0
-    },
-
-    openSaveDialog() {
-        this.setData({
-            dataShowDialog: true
-        });
+        slideButtons: [
+            {
+                type: 'warn',
+                text: '删除'
+            }
+        ],
+        showTipsDialog: false,
+        tipsText: "",
+        tipsButtons: [
+            {
+                text: '明白了'
+            }
+        ]
     },
 
     closeShowDialog() {
         this.setData({
             dataShowDialog: false
+        });
+    },
+
+    slideButtonTap(e) {
+        var po = this.data.poList[e.currentTarget.dataset.index];
+
+        if (po == null) {
+            this.setData({
+                tipsText: "系统错误，请刷新后重试！",
+                showTipsDialog: true
+            });
+            return
+        }
+
+        if (po.poReceive > 0) {
+            this.setData({
+                tipsText: "已经收货的不允许删除！",
+                showTipsDialog: true
+            });
+            return
+        }
+
+        this.deleteData(po.poId)
+    },
+
+    tapDialogButton(e) {
+        this.setData({
+            showTipsDialog: false
         });
     },
 
@@ -56,19 +88,22 @@ Page({
             success(res) {
             }
         });
+
+        this.setData({
+            dataShowDialog: false
+        });
     },
 
     bindCopyTap(e) {
         // console.log(e);
-        console.log(e.currentTarget.dataset.qrcode);
+        // console.log(e.currentTarget.dataset.qrcode);
         // console.log(this.data.poList[e.currentTarget.dataset.index].poBarcodeHead);
 
         this.setData({
             selectedIndex: e.currentTarget.dataset.index,
             savedTitle: e.currentTarget.dataset.qrcode,
+            dataShowDialog: true
         });
-
-        this.openSaveDialog()
     },
 
     bindDateChange(e) {
@@ -77,6 +112,22 @@ Page({
         })
 
         this.getRecordList();
+    },
+
+    async deleteData(poId) {
+        const poCusNo = app.globalData.customLogin.cusNo;
+        const saveParams = { poCusNo, poId }
+        const { fOK, fMsg } = await request({ url: "PartOrder/Delete", method: "POST", data: saveParams });
+
+        if (fOK === "True") {
+            this.getRecordList();
+        } else {
+            wx.showToast({
+                title: fMsg,
+                icon: 'none',
+                duration: 2000
+            })
+        }
     },
 
     async getRecordList() {
@@ -89,6 +140,7 @@ Page({
             res.forEach(v => {
                 var dateTmp = new Date(v.poDate).getDate();
                 v.dayData = formatDateToSimple(v.poDate);
+                v.isTouchMove = false;
             })
         }
 

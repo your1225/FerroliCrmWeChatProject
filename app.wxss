@@ -23,3 +23,18 @@ page {
 image {
   width: 100%;
 }
+.rec_no_data {
+  text-align: center;
+  padding-bottom: 80rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.rec_no_data image {
+  font-size: 150px;
+  color: #ff6600;
+}
+.rec_no_data .no_data_text {
+  color: #ff6600;
+  font-size: large;
+}

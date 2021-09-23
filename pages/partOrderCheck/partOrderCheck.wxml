@@ -1,3 +1,68 @@
 <!--pages/partOrderCheck/partOrderCheck.wxml-->
+<wxs module="wxs" src="../../utils/filter.wxs"></wxs>
+<mp-form-page title="二维码检查" subtitle="可直接扫描打印出的二维码，来检查本公司系统是否可识别。">
+    <mp-form id="form">
+        <mp-cells title="订单信息">
+            <mp-cell>
+                <view slot="title">订单号</view>
+                <view>{{poInfo.poId}} </view>
+                <view slot="footer">
+                    <button type="primary" size="mini" plain="true" bindtap="handleScanData">扫描</button>
+                </view>
+            </mp-cell>
+            <mp-cell ext-class="item-cell">
+                <view style="display: flex;flex-direction: column;">
+                    <text user-select="true"
+                        style="color: lightgray;font-size: 12px;margin-bottom: 50rpx;text-align: center;">{{poInfo.poBarcodeHead}}</text>
+                    <view style="display: flex;justify-content: space-between;">
+                        <view style="color: lightgray;">{{1}}</view>
+                        <view style="color: lightgray;">···</view>
+                        <view style="color: darkgreen;">{{scanNum}}</view>
+                        <view style="color: lightgray;">···</view>
+                        <view style="color: lightgray;">{{poInfo.poNum}}</view>
+                    </view>
+                </view>
+            </mp-cell>
+            <mp-cell>
+                <view slot="title">供应商编码</view>
+                <view>{{poInfo.poCusNo}}</view>
+            </mp-cell>
+            <mp-cell>
+                <view slot="title">供应商</view>
+                <view>{{poInfo.poCusName}}</view>
+            </mp-cell>
+            <mp-cell>
+                <view slot="title">产品编码</view>
+                <view>{{poInfo.poPrdNoPart}}</view>
+            </mp-cell>
+            <mp-cell>
+                <view slot="title">产品</view>
+                <view>{{poInfo.poPrdNamePart}}</view>
+            </mp-cell>
+            <mp-cell>
+                <view slot="title">订单数量</view>
+                <view>{{poInfo.poNum}}</view>
+            </mp-cell>
+            <mp-cell>
+                <view slot="title">收货数量</view>
+                <view>{{poInfo.poReceive}}</view>
+            </mp-cell>
+            <mp-cell>
+                <view slot="title">订单日期</view>
+                <view>{{wxs.dateFormatStr(poInfo.poDate)}}</view>
+            </mp-cell>
+            <mp-cell>
+                <view slot="title">二维码</view>
+                <view>{{poInfo.poBarcodeHead}}</view>
+            </mp-cell>
+            <mp-cell>
+                <view slot="title">备注</view>
+                <view>{{poInfo.poRemark}}</view>
+            </mp-cell>
+        </mp-cells>
+    </mp-form>
 
-    <text>检查</text>
+    <view slot="button">
+        <button type="default" bindtap="copyData">复制二维码</button>
+    </view>
+</mp-form-page>

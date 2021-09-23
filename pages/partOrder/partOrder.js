@@ -59,6 +59,12 @@ Page({
     handleGetMaterialInfo() {
         if (this.data.itemCode.trim() != "") {
             this.getMaterialInfo()
+        } else {
+            wx.showToast({
+                title: "请先输入物料编码",
+                icon: 'none',
+                duration: 2000
+            })
         }
     },
 

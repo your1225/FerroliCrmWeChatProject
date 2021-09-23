@@ -1,1 +1,4 @@
 /* pages/partOrderCheck/partOrderCheck.wxss */
+.item-cell {
+    background-color: rgb(245, 255, 245);
+}

@@ -5,11 +5,11 @@
             <mp-cell>
                 <view slot="title">物料</view>
                 <view>
-                    <input class="weui-input" type="text" value="{{itemCode}}" placeholder="输入物料编码"
+                    <input type="text" value="{{itemCode}}" placeholder="输入物料编码"
                         placeholder-class="weui-input__placeholder" bindinput="bindItemCodeChange" />
                 </view>
                 <view slot="footer">
-                    <a class="weui-btn weui-btn_default weui-vcode-btn" bindtap="handleGetMaterialInfo">获取</a>
+                    <button type="primary" size="mini" plain="true" bindtap="handleGetMaterialInfo">获取</button>
                 </view>
             </mp-cell>
             <mp-cell ext-class="item-cell">
@@ -48,7 +48,7 @@
     </mp-form>
 
     <view slot="button">
-        <button class="weui-btn" type="primary" bindtap="saveData">保存</button>
+        <button type="primary" bindtap="saveData">保存</button>
     </view>
 
     <mp-half-screen-dialog bindbuttontap="closeAndCopy" show="{{savedDialog}}" mask="{{true}}" maskClosable="{{false}}"
