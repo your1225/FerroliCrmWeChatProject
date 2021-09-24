@@ -1,0 +1,38 @@
+{
+    "light": {
+        "navBgColor": "#f6f6f6",
+        "navTxtStyle": "black",
+        "bgColor": "#ffffff",
+        "bgTxtStyle": "light",
+        "bgColorTop": "#eeeeee",
+        "bgColorBottom": "#efefef",
+        "tabFontColor": "#000000",
+        "tabSelectedColor": "#ff6600",
+        "tabBgColor": "#ffffff",
+        "tabBorderStyle": "black",
+        "iconPath1": "images/tabbar_icon_po_default.png",
+        "selectedIconPath1": "images/tabbar_icon_po_active.png",
+        "iconPath2": "images/tabbar_icon_po_search_default.png",
+        "selectedIconPath2": "images/tabbar_icon_po_search_active.png",
+        "iconPath3": "images/tabbar_icon_po_check_default.png",
+        "selectedIconPath3": "images/tabbar_icon_po_check_active.png"
+    },
+    "dark": {
+        "navBgColor": "#191919",
+        "navTxtStyle": "white",
+        "bgColor": "#1f1f1f",
+        "bgTxtStyle": "dark",
+        "bgColorTop": "#191919",
+        "bgColorBottom": "#1f1f1f",
+        "tabFontColor": "#ffffff",
+        "tabSelectedColor": "#ff6600",
+        "tabBgColor": "#191919",
+        "tabBorderStyle": "white",
+        "iconPath1": "images/tabbar_icon_po_default.png",
+        "selectedIconPath1": "images/tabbar_icon_po_active.png",
+        "iconPath2": "images/tabbar_icon_po_search_default.png",
+        "selectedIconPath2": "images/tabbar_icon_po_search_active.png",
+        "iconPath3": "images/tabbar_icon_po_check_default.png",
+        "selectedIconPath3": "images/tabbar_icon_po_check_active.png"
+    }
+}

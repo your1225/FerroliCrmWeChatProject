@@ -171,6 +171,10 @@ Page({
             dtStart: formatDateByH(startDate),
             dtEnd: formatDateByH(endDate)
         })
+
+        wx.setNavigationBarTitle({
+            title: app.globalData.customLogin.cusName
+        })
     }
 
     /**

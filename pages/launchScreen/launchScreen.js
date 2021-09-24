@@ -16,6 +16,7 @@ Page({
 
         if (reData.isPass == true) {
             app.globalData.customLogin = reData;
+
             wx.reLaunch({
                 url: '/pages/partOrder/partOrder'
             })

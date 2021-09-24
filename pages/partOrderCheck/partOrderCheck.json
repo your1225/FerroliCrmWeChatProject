@@ -5,6 +5,5 @@
     "mp-cells": "weui-miniprogram/cells/cells",
     "mp-cell": "weui-miniprogram/cell/cell",
     "mp-icon": "weui-miniprogram/icon/icon"
-  },
-  "navigationBarTitleText": "法罗力"
+  }
 }

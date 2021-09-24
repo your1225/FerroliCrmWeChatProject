@@ -7,35 +7,39 @@
     "pages/partOrderCheck/partOrderCheck"
   ],
   "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "@navBgColor",
     "navigationBarTitleText": "法罗力",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "@navTxtStyle",
+    "backgroundTextStyle": "@bgTxtStyle",
+    "backgroundColorTop": "@bgColorTop",
+    "backgroundColorBottom": "@bgColorBottom"
   },
-  "useExtendedLib": { 
-    "kbone": true, 
-    "weui": true 
-  }, 
+  "darkmode": true,
+  "themeLocation": "theme.json",
+  "useExtendedLib": {
+    "kbone": true,
+    "weui": true
+  },
   "tabBar": {
-    "color": "#000",
-    "selectedColor": "#ff6600",
-    "borderStyle": "black",
-    "backgroundColor": "#ffffff",
+    "color": "@tabFontColor",
+    "selectedColor": "@tabSelectedColor",
+    "borderStyle": "@tabBorderStyle",
+    "backgroundColor": "@tabBgColor",
     "list": [{
       "text": "生成",
       "pagePath": "pages/partOrder/partOrder",
-      "iconPath": "images/tabbar_icon_po_default.png",
-      "selectedIconPath": "images/tabbar_icon_po_active.png"
+      "iconPath": "@iconPath1",
+      "selectedIconPath": "@selectedIconPath1"
     }, {
       "text": "查询",
       "pagePath": "pages/partOrderSearch/partOrderSearch",
-      "iconPath": "images/tabbar_icon_po_search_default.png",
-      "selectedIconPath": "images/tabbar_icon_po_search_active.png"
+      "iconPath": "@iconPath2",
+      "selectedIconPath": "@selectedIconPath2"
     }, {
       "text": "检查",
       "pagePath": "pages/partOrderCheck/partOrderCheck",
-      "iconPath": "images/tabbar_icon_po_check_default.png",
-      "selectedIconPath": "images/tabbar_icon_po_check_active.png"
+      "iconPath": "@iconPath3",
+      "selectedIconPath": "@selectedIconPath3"
     }]
   },
   "style": "v2",

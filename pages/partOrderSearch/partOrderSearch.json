@@ -8,6 +8,5 @@
     "mp-half-screen-dialog": "weui-miniprogram/half-screen-dialog/half-screen-dialog",
     "mp-slideview": "weui-miniprogram/slideview/slideview",
     "mp-dialog": "weui-miniprogram/dialog/dialog"
-  },
-  "navigationBarTitleText": "法罗力"
+  }
 }
