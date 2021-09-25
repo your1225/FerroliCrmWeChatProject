@@ -51,6 +51,8 @@
         <button type="primary" bindtap="saveData">保存</button>
     </view>
 
+    <view slot="footer">{{publishDate}} </view>
+
     <mp-half-screen-dialog bindbuttontap="closeAndCopy" show="{{savedDialog}}" mask="{{true}}" maskClosable="{{false}}"
         title="{{savedTitle}}" desc="保存成功后，可复制二维码发送给要打印标签的同事。" buttons="{{dialogButtons}}" bindclose="closeSaveDialog">
     </mp-half-screen-dialog>

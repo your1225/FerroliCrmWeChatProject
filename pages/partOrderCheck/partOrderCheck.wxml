@@ -65,4 +65,6 @@
     <view slot="button">
         <button type="default" bindtap="copyData">复制二维码</button>
     </view>
+
+    <view slot="footer">{{publishDate}}</view>
 </mp-form-page>

@@ -9,6 +9,7 @@ Page({
      * 页面的初始数据
      */
     data: {
+        publishDate: "",
         scanNum: 0,
         poInfo: null
         // poInfo: {
@@ -109,8 +110,12 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        wx.setNavigationBarTitle({
-            title: app.globalData.customLogin.cusName
+        this.setData({
+            publishDate: app.globalData.publishDate
         })
+
+        wx.setNavigationBarTitle({
+            title: app.globalData.customLogin.cusName            
+        })        
     }
 })

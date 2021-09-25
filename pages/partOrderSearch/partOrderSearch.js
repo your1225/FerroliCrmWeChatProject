@@ -10,6 +10,7 @@ Page({
      * 页面的初始数据
      */
     data: {
+        publishDate: "",
         dtStart: "2018-01-01",
         dtEnd: "2021-01-01",
         dtSelected: "2021-09-15",
@@ -160,7 +161,8 @@ Page({
         this.setData({
             dtSelected: formatDateByH(nowDate),
             dtStart: formatDateByH(startDate),
-            dtEnd: formatDateByH(endDate)
+            dtEnd: formatDateByH(endDate),
+            publishDate: app.globalData.publishDate
         })
 
         wx.setNavigationBarTitle({
