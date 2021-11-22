@@ -18,10 +18,11 @@
                     <mp-slideview buttons="{{slideButtons}}" data-index="{{index}}" bindbuttontap="slideButtonTap">
                         <mp-cell hover="true">
                             <view style="display: flex;justify-content: space-between;">
-                                <view>{{item.poPrdNoPart}}</view>
+                                <view style="color: red;">{{item.poId}}</view>
+                                <view style="font-size: smaller;margin-top: 10rpx;">{{item.poPrdNoPart}}</view>
                                 <view style="display: flex;">
-                                    <mp-icon type="outline" icon="time" size="{{20}}"></mp-icon>
-                                    <view style="margin-top: 5rpx;">{{item.dayData}}</view>
+                                    <mp-icon type="outline" icon="time" size="{{15}}"></mp-icon>
+                                    <view style="margin-top: 10rpx;font-size: smaller;">{{item.dayData}}</view>
                                 </view>
                             </view>
                             <view>{{item.poPrdNamePart}}</view>
