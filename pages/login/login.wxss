@@ -12,10 +12,6 @@
   color: #999999;
 }
 
-.login_item .login_item_content_wrap {
-  background-color: #FFFFFF;
-}
-
 .login_item .login_item_content_wrap .login_item_content {
   margin: 20rpx 30rpx;
   height: 80rpx;
