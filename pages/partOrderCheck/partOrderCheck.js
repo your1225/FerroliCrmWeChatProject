@@ -97,10 +97,11 @@ Page({
             return
         }
 
-        var endStr = "00000" + this.data.poInfo.poNum
+        var po = this.data.poInfo;
 
         wx.setClipboardData({
-            data: "二维码: " + this.data.poInfo.poBarcodeHead + "  数量: 00001 - " + endStr.substr(endStr.length - 5),
+            // data: "二维码: " + this.data.poInfo.poBarcodeHead + "  数量: 00001 - " + endStr.substr(endStr.length - 5),
+            data: "二维码: " + po.poBarcodeFrom + "  - " + po.poBarcodeTo + " 数量：" + po.poNum,
             success(res) {
             }
         });

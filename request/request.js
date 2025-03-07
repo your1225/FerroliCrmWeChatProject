@@ -10,7 +10,7 @@ export const request = (params) => {
     })
 
     //定义公共的url
-    const baseUrl = "https://barcode.ferroli.com.cn:9013/api/";
+    const baseUrl = "https://barcode.ferroli.com.cn:9014/api/";
 
     return new Promise((resolve, reject) => {
         wx.request({

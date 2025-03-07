@@ -5,8 +5,7 @@
             <mp-cell>
                 <view slot="title">起始日期</view>
                 <view>
-                    <picker mode="date" value="{{dtSelected}}" start="{{dtStart}}" end="{{dtEnd}}"
-                        bindchange="bindDateChange">
+                    <picker mode="date" value="{{dtSelected}}" start="{{dtStart}}" end="{{dtEnd}}" bindchange="bindDateChange">
                         <a class="weui-btn weui-btn_default">{{dtSelected}}</a>
                     </picker>
                 </view>
@@ -17,35 +16,38 @@
                 <block wx:for="{{poList}}" wx:key="poId">
                     <mp-slideview buttons="{{slideButtons}}" data-index="{{index}}" bindbuttontap="slideButtonTap">
                         <mp-cell hover="true">
-                            <view style="display: flex;justify-content: space-between;">
+                            <view style="display: flex;justify-content: space-between;margin-top: 10rpx;">
                                 <view style="color: red;">{{item.poId}}</view>
-                                <view style="font-size: smaller;margin-top: 10rpx;">{{item.poPrdNoPart}}</view>
+                                <view>{{item.poPrdNoPart}}</view>
                                 <view style="display: flex;">
-                                    <mp-icon type="outline" icon="time" size="{{15}}"></mp-icon>
-                                    <view style="margin-top: 10rpx;font-size: smaller;">{{item.dayData}}</view>
+                                    <mp-icon type="outline" icon="time"></mp-icon>
+                                    <view>{{item.dayData}}</view>
                                 </view>
                             </view>
                             <view>{{item.poPrdNamePart}}</view>
                             <view style="font-size: 25rpx;color: lightslategrey;">{{item.poBarcodeHead}}</view>
-                            <view
-                                style="display: flex;justify-content: space-around;margin-top: 20rpx;margin-bottom: 20rpx;">
+                            <view style="display: flex;justify-content: space-around;margin-top: 20rpx;margin-bottom: 20rpx;font-size: 25rpx;">
                                 <view style="display: flex;">
-                                    <mp-icon type="field" icon="info" color="darkmagenta" size="{{20}}"></mp-icon>
+                                    <mp-icon type="field" icon="info" color="darkmagenta" size="{{15}}" />
                                     <view style="color: darkmagenta;">订单：</view>
                                     <view>{{item.poNum}}</view>
                                 </view>
                                 <view style="display: flex;">
-                                    <mp-icon type="field" icon="done2" color="green" size="{{20}}"></mp-icon>
+                                    <mp-icon type="field" icon="done2" color="green" size="{{15}}" />
                                     <view style="color: green;">已收：</view>
                                     <view>{{item.poReceive}}</view>
+                                </view>
+                                <view style="display: flex;">
+                                    <mp-icon type="field" icon="group-detail" color="#FF6600" size="{{15}}" />
+                                    <block wx:if="{{item.poIsBatch == false}}">一物一码</block>
+                                    <block wx:else>批量码</block>
                                 </view>
                             </view>
                             <view style="display: flex;">
                                 <mp-icon type="outline" icon="comment" size="{{20}}" color="lightslategrey"></mp-icon>
                                 <view style="color: lightslategrey;">{{item.poRemark}}</view>
                             </view>
-                            <view slot="footer" data-qrcode="{{item.poBarcodeHead}}" data-index="{{index}}"
-                                bindtap="bindCopyTap">
+                            <view slot="footer" data-qrcode="{{item.poBarcodeHead}}" data-index="{{index}}" bindtap="bindCopyTap">
                                 <mp-icon type="outline" icon="copy" size="{{25}}"></mp-icon>
                             </view>
                         </mp-cell>
@@ -59,11 +61,7 @@
         </mp-cells>
     </mp-form>
 
-    <view slot="footer">{{publishDate}}</view>
-
-    <mp-half-screen-dialog bindbuttontap="closeAndCopy" show="{{dataShowDialog}}" mask="{{true}}"
-        maskClosable="{{false}}" title="{{savedTitle}}" desc="可复制二维码发送给要打印标签的同事。" buttons="{{dialogButtons}}"
-        bindclose="closeShowDialog">
+    <mp-half-screen-dialog bindbuttontap="closeAndCopy" show="{{dataShowDialog}}" mask="{{true}}" maskClosable="{{false}}" title="{{savedTitle}}" desc="可复制二维码发送给要打印标签的同事。" buttons="{{dialogButtons}}" bindclose="closeShowDialog">
     </mp-half-screen-dialog>
 
     <mp-dialog title="数据校验失败" show="{{showTipsDialog}}" bindbuttontap="tapDialogButton" buttons="{{tipsButtons}}">

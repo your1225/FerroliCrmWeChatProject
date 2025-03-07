@@ -5,8 +5,7 @@
             <mp-cell>
                 <view slot="title">物料</view>
                 <view>
-                    <input type="text" value="{{itemCode}}" placeholder="输入物料编码"
-                        placeholder-class="weui-input__placeholder" bindinput="bindItemCodeChange" />
+                    <input type="text" value="{{itemCode}}" placeholder="输入物料编码" placeholder-class="weui-input__placeholder" bindinput="bindItemCodeChange" />
                 </view>
                 <view slot="footer">
                     <button type="primary" size="mini" plain="true" bindtap="handleGetMaterialInfo">获取</button>
@@ -23,8 +22,7 @@
             <mp-cell>
                 <view slot="title">日期</view>
                 <view>
-                    <picker mode="date" value="{{dtSelected}}" start="{{dtStart}}" end="{{dtEnd}}"
-                        bindchange="bindDateChange">
+                    <picker mode="date" value="{{dtSelected}}" start="{{dtStart}}" end="{{dtEnd}}" bindchange="bindDateChange">
                         <a class="weui-btn weui-btn_default">{{dtSelected}}</a>
                     </picker>
                 </view>
@@ -32,15 +30,18 @@
             <mp-cell>
                 <view slot="title">物料</view>
                 <view>
-                    <input class="weui-input" placeholder="填写生产数量" type="number" value="{{poNum}}"
-                        placeholder-class="weui-input__placeholder" bindinput="bindPoNumChange" />
+                    <input class="weui-input" placeholder="填写生产数量" type="number" value="{{poNum}}" placeholder-class="weui-input__placeholder" bindinput="bindPoNumChange" />
                 </view>
+            </mp-cell>
+            <mp-cell title="二维码类型">
+                <mp-checkbox-group prop="radio" multi="{{false}}" bindchange="bindIsBatchChange">
+                    <mp-checkbox label="一物一码" value="{{false}}" checked="{{true}}" />
+                    <mp-checkbox label="批量码" value="{{true}}" checked="{{false}}" />
+                </mp-checkbox-group>
             </mp-cell>
             <mp-cell>
                 <view>
-                    <textarea class="weui-textarea" placeholder="填写PO号及其他备注信息"
-                        placeholder-class="weui-input__placeholder" rows="3" value="{{poRemark}}"
-                        bindinput="bindPoRemarkChange"></textarea>
+                    <textarea class="weui-textarea" placeholder="填写PO号及其他备注信息" placeholder-class="weui-input__placeholder" rows="3" value="{{poRemark}}" bindinput="bindPoRemarkChange"></textarea>
                     <view class="weui-textarea-counter">200</view>
                 </view>
             </mp-cell>
@@ -51,9 +52,6 @@
         <button type="primary" bindtap="saveData">保存</button>
     </view>
 
-    <view slot="footer">{{publishDate}} </view>
-
-    <mp-half-screen-dialog bindbuttontap="closeAndCopy" show="{{savedDialog}}" mask="{{true}}" maskClosable="{{false}}"
-        title="{{savedTitle}}" desc="保存成功后，可复制二维码发送给要打印标签的同事。" buttons="{{dialogButtons}}" bindclose="closeSaveDialog">
+    <mp-half-screen-dialog bindbuttontap="closeAndCopy" show="{{savedDialog}}" mask="{{true}}" maskClosable="{{false}}" title="{{savedTitle}}" desc="保存成功后，可复制二维码发送给要打印标签的同事。" buttons="{{dialogButtons}}" bindclose="closeSaveDialog">
     </mp-half-screen-dialog>
 </mp-form-page>

@@ -40,7 +40,8 @@ Page({
             {
                 text: '明白了'
             }
-        ]
+        ],
+        savedTitle: ""
     },
 
     closeShowDialog() {
@@ -82,10 +83,8 @@ Page({
         // console.log(e.detail.item.value)
         var po = this.data.poList[this.data.selectedIndex];
 
-        var endStr = "00000" + po.poNum;
-
         wx.setClipboardData({
-            data: "二维码: " + po.poBarcodeHead + "  数量: 00001 - " + endStr.substr(endStr.length - 5),
+            data: "二维码: " + po.poBarcodeFrom + "  - " + po.poBarcodeTo + " 数量：" + po.poNum,
             success(res) {
             }
         });
@@ -144,6 +143,8 @@ Page({
                 v.isTouchMove = false;
             })
         }
+
+        // console.log(res)
 
         this.setData({
             poList: res

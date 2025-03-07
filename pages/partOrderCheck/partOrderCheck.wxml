@@ -24,6 +24,13 @@
                 </view>
             </mp-cell>
             <mp-cell>
+                <view slot="title">二维码类型</view>
+                <view>
+                    <block wx:if="{{poInfo.poIsBatch == false}}">一物一码</block>
+                    <block wx:else>批量码</block>
+                </view>
+            </mp-cell>
+            <mp-cell>
                 <view slot="title">供应商编码</view>
                 <view>{{poInfo.poCusNo}}</view>
             </mp-cell>
@@ -66,5 +73,4 @@
         <button type="default" bindtap="copyData">复制二维码</button>
     </view>
 
-    <view slot="footer">{{publishDate}}</view>
 </mp-form-page>

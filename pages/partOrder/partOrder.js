@@ -1,9 +1,17 @@
 // pages/partOrder/partOrder.js
 const app = getApp()
 
-import { request } from "../../request/request.js";
-import { addMonth, formatDateByH, formatDate } from "../../utils/util.js"
-import { showToast } from "../../utils/asyncWx.js"
+import {
+    request
+} from "../../request/request.js";
+import {
+    addMonth,
+    formatDateByH,
+    formatDate
+} from "../../utils/util.js"
+import {
+    showToast
+} from "../../utils/asyncWx.js"
 
 Page({
     /**
@@ -14,6 +22,7 @@ Page({
         dtStart: "2018-01-01",
         dtEnd: "2021-01-01",
         dtSelected: "2021-09-15",
+        poIsBatch: false,
         itemCode: "",
         itemName: "",
         materiel: null,
@@ -23,14 +32,12 @@ Page({
         savedDialog: false,
         savedTitle: "",
         savedBarcode: "",
-        dialogButtons: [
-            {
-                type: 'primary',
-                className: '',
-                text: '复制并关闭',
-                value: 1
-            }
-        ]
+        dialogButtons: [{
+            type: 'primary',
+            className: '',
+            text: '复制并关闭',
+            value: 1
+        }]
     },
 
     bindDateChange(e) {
@@ -54,6 +61,14 @@ Page({
     bindPoRemarkChange(e) {
         this.setData({
             poRemark: e.detail.value
+        })
+    },
+
+    bindIsBatchChange(e) {
+        // console.log(e.detail.value)
+
+        this.setData({
+            poIsBatch: e.detail.value
         })
     },
 
@@ -89,8 +104,7 @@ Page({
 
             wx.setClipboardData({
                 data: "二维码: " + this.data.savedBarcode + "  数量: 00001 - " + endStr.substr(endStr.length - 5),
-                success(res) {
-                }
+                success(res) {}
             });
 
             this.setData({
@@ -104,7 +118,9 @@ Page({
     },
 
     async getMaterialInfo() {
-        const reData = await request({ url: "Materiel/GetModel/" + this.data.itemCode.trim() });
+        const reData = await request({
+            url: "Materiel/GetModel/" + this.data.itemCode.trim()
+        });
         // console.log(reData);
         if (reData != null) {
             this.setData({
@@ -121,26 +137,48 @@ Page({
 
     async saveData() {
         if (this.data.itemName.trim() == "") {
-            showToast({ title: "没有物料信息,请完善" });
+            showToast({
+                title: "没有物料信息,请完善"
+            });
             return
         }
         if (this.data.poRemark.trim() == "") {
-            showToast({ title: "请填写备注信息,随便填填也好" });
+            showToast({
+                title: "请填写备注信息,随便填填也好"
+            });
             return
         }
         if (this.data.poNum <= 0) {
-            showToast({ title: "麻烦把数量填一下" });
+            showToast({
+                title: "麻烦把数量填一下"
+            });
             return
         }
 
+        const poIsBatch = this.data.poIsBatch
         const poCusNo = app.globalData.customLogin.cusNo
         const poPrdNoPart = this.data.itemCode
         const poNum = this.data.poNum
         const poEmpId = app.globalData.customLogin.empId
         const poSelData = this.data.dtSelected
         const poRemark = this.data.poRemark
-        const saveParams = { poCusNo, poPrdNoPart, poNum, poEmpId, poSelData, poRemark }
-        const { fOK, fMsg } = await request({ url: "PartOrder/Add", method: "POST", data: saveParams });
+        const saveParams = {
+            poIsBatch,
+            poCusNo,
+            poPrdNoPart,
+            poNum,
+            poEmpId,
+            poSelData,
+            poRemark
+        }
+        const {
+            fOK,
+            fMsg
+        } = await request({
+            url: "PartOrder/Add",
+            method: "POST",
+            data: saveParams
+        });
 
         if (fOK === "True") {
             this.setData({
