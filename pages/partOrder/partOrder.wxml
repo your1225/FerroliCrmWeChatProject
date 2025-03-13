@@ -33,10 +33,10 @@
                     <input class="weui-input" placeholder="填写生产数量" type="number" value="{{poNum}}" placeholder-class="weui-input__placeholder" bindinput="bindPoNumChange" />
                 </view>
             </mp-cell>
-            <mp-cell title="二维码类型">
+            <mp-cell title="元器件类型">
                 <mp-checkbox-group prop="radio" multi="{{false}}" bindchange="bindIsBatchChange">
-                    <mp-checkbox label="一物一码" value="{{false}}" checked="{{true}}" />
-                    <mp-checkbox label="批量码" value="{{true}}" checked="{{false}}" />
+                    <mp-checkbox label="关键元器件(一物一码)" value="{{false}}" checked="{{true}}" />
+                    <mp-checkbox label="非关键元器件(批量码)" value="{{true}}" checked="{{false}}" />
                 </mp-checkbox-group>
             </mp-cell>
             <mp-cell>

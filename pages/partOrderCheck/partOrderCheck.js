@@ -1,7 +1,9 @@
 // pages/partOrderCheck/partOrderCheck.js
 const app = getApp()
 
-import { request } from "../../request/request.js";
+import {
+    request
+} from "../../request/request.js";
 
 Page({
 
@@ -31,15 +33,39 @@ Page({
     },
 
     async getQRCodeInfo(qrCode) {
-        const reData = await request({ url: "PartOrder/GetModelByBarcodeHead/" + qrCode.replace('.', 'dot') });
+
+        const reData = await request({
+            url: "PartOrder/GetModelByBarcode/" + qrCode.replace('.', 'dot').replace("+", "add")
+        });
+
         // console.log(reData);
         if (reData != null) {
             this.setData({
                 poInfo: reData
             })
+
+            if (reData.poIsBatch == false) {
+                const num = parseInt(qrCode.substr(qrCode.length - 5))
+
+                this.setData({
+                    scanNum: num
+                })
+
+                if (num > reData.poNum) {
+                    wx.showToast({
+                        icon: 'error',
+                        title: '二维码的流水号超出订单数量'
+                    })
+                }
+            }
         } else {
             this.setData({
                 poInfo: null
+            })
+
+            wx.showToast({
+                icon: 'error',
+                title: '无法识别的二维码'
             })
         }
     },
@@ -61,17 +87,7 @@ Page({
                         return
                     }
 
-                    const num = parseInt(codeFull.substr(codeFull.length - 5))
-                    const codeHead = codeFull.substr(0, codeFull.length - 5)
-
-                    // console.log(num)
-                    // console.log(codeHead)
-
-                    this.setData({
-                        scanNum: num
-                    })
-
-                    this.getQRCodeInfo(codeHead)
+                    this.getQRCodeInfo(codeFull)
                 }
             },
             fail: res => {
@@ -102,8 +118,7 @@ Page({
         wx.setClipboardData({
             // data: "二维码: " + this.data.poInfo.poBarcodeHead + "  数量: 00001 - " + endStr.substr(endStr.length - 5),
             data: "二维码: " + po.poBarcodeFrom + "  - " + po.poBarcodeTo + " 数量：" + po.poNum,
-            success(res) {
-            }
+            success(res) {}
         });
     },
 
@@ -116,7 +131,7 @@ Page({
         })
 
         wx.setNavigationBarTitle({
-            title: app.globalData.customLogin.cusName            
-        })        
+            title: app.globalData.customLogin.cusName
+        })
     }
 })

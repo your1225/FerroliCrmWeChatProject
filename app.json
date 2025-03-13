@@ -42,6 +42,7 @@
       "selectedIconPath": "@selectedIconPath3"
     }]
   },
+  "lazyCodeLoading": "requiredComponents",
   "style": "v2",
   "sitemapLocation": "sitemap.json"
 }

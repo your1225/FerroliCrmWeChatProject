@@ -10,7 +10,7 @@
                     <button type="primary" size="mini" plain="true" bindtap="handleScanData">扫描</button>
                 </view>
             </mp-cell>
-            <mp-cell ext-class="item-cell">
+            <mp-cell ext-class="item-cell {{poInfo.poIsBatch===true?'hide':''}}">
                 <view style="display: flex;flex-direction: column;">
                     <text user-select="true"
                         style="color: lightgray;font-size: 12px;margin-bottom: 50rpx;text-align: center;">{{poInfo.poBarcodeHead}}</text>
@@ -24,10 +24,10 @@
                 </view>
             </mp-cell>
             <mp-cell>
-                <view slot="title">二维码类型</view>
+                <view slot="title">元器件类型</view>
                 <view>
-                    <block wx:if="{{poInfo.poIsBatch == false}}">一物一码</block>
-                    <block wx:else>批量码</block>
+                    <block wx:if="{{poInfo.poIsBatch == false}}">关键元器件</block>
+                    <block wx:else>非关键元器件</block>
                 </view>
             </mp-cell>
             <mp-cell>
