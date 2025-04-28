@@ -1,0 +1,16 @@
+/* pages/partOrderBoxCheck/partOrderBoxCheck.wxss */
+/* 正常模式下应用的样式 */
+.item-cell {
+    background-color: rgb(245, 255, 245);
+}
+
+.hide {
+    display: none;
+}
+
+/* 暗黑模式下应用的样式 */
+@media (prefers-color-scheme: dark) {
+    .item-cell {
+        background-color: rgb(245, 255, 245);
+    }
+}

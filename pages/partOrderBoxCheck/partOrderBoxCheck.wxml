@@ -1,6 +1,6 @@
-<!--pages/partOrderCheck/partOrderCheck.wxml-->
+<!--pages/partOrderBoxCheck/partOrderBoxCheck.wxml-->
 <wxs module="wxs" src="../../utils/filter.wxs"></wxs>
-<mp-form-page title="一物一码检查" subtitle="扫描打印出的二维码，来检查本公司系统是否可识别。批量码(即箱码)，在箱码检查处检查。">
+<mp-form-page title="箱码检查" subtitle="关键与非关键元器件使用统一外箱码，非关键元器件的二维码，关键元器件二维码的5位流水号前面部分。">
     <mp-form id="form">
         <mp-cells title="送货信息">
             <mp-cell>
@@ -8,19 +8,6 @@
                 <view>{{poInfo.poId}} </view>
                 <view slot="footer">
                     <button type="primary" size="mini" plain="true" bindtap="handleScanData">扫描</button>
-                </view>
-            </mp-cell>
-            <mp-cell ext-class="item-cell {{poInfo.poIsBatch===true?'hide':''}}">
-                <view style="display: flex;flex-direction: column;">
-                    <text user-select="true"
-                        style="color: lightgray;font-size: 12px;margin-bottom: 50rpx;text-align: center;">{{poInfo.poBarcodeHead}}</text>
-                    <view style="display: flex;justify-content: space-between;">
-                        <view style="color: lightgray;">{{1}}</view>
-                        <view style="color: lightgray;">···</view>
-                        <view style="color: darkgreen;">{{scanNum}}</view>
-                        <view style="color: lightgray;">···</view>
-                        <view style="color: lightgray;">{{poInfo.poNum}}</view>
-                    </view>
                 </view>
             </mp-cell>
             <mp-cell>

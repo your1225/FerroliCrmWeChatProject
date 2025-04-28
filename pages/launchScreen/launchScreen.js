@@ -10,9 +10,9 @@ Page({
    */
     async autoLogin(wxUserCode) {
         const reData = await request({ url: "UserAccount/WeChatAutoLogin/" + wxUserCode });
-        // console.log(wxUserCode);
+        console.log(wxUserCode);
         app.globalData.openid = reData.weChatOpenId;
-        // console.log(reData);
+        console.log(reData);
 
         if (reData.isPass == true) {
             app.globalData.customLogin = reData;

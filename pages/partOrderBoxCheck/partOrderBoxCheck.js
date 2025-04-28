@@ -1,4 +1,4 @@
-// pages/partOrderCheck/partOrderCheck.js
+// pages/partOrderBoxCheck/partOrderBoxCheck.js
 const app = getApp()
 
 import {
@@ -14,28 +14,12 @@ Page({
         publishDate: "",
         scanNum: 0,
         poInfo: null
-        // poInfo: {
-        //     poId: 1380,
-        //     poCusNo: "gas",
-        //     poCusName: "法罗力燃气生产线",
-        //     poPrdNoPart: "90160050-01",
-        //     poPrdNamePart: "塑料水路进水阀组件（单采暖）",
-        //     poNum: 5,
-        //     empId: 982,
-        //     poDate: "2021-09-17 00:00:00",
-        //     poBarcodeHead: "90160050-01gas210917001QKB",
-        //     poRemark: "",
-        //     poReceive: 5,
-        //     poComplete: true,
-        //     poCompleteDate: "2021-09-17 15:11:00",
-        //     userName: "李泽建"
-        // }
     },
 
     async getQRCodeInfo(qrCode) {
 
         const reData = await request({
-            url: "PartOrder/GetModelBySerialQrcode/" + qrCode.replace('.', 'dot').replace("+", "add")
+            url: "PartOrder/GetModelByBoxQrocde/" + qrCode.replace('.', 'dot').replace("+", "add")
         });
 
         // console.log(reData);

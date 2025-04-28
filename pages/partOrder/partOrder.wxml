@@ -28,9 +28,15 @@
                 </view>
             </mp-cell>
             <mp-cell>
-                <view slot="title">物料</view>
+                <view slot="title">送货数量</view>
                 <view>
-                    <input class="weui-input" placeholder="填写生产数量" type="number" value="{{poNum}}" placeholder-class="weui-input__placeholder" bindinput="bindPoNumChange" />
+                    <input class="weui-input" placeholder="填写生产的数量" type="number" value="{{poNum}}" placeholder-class="weui-input__placeholder" bindinput="bindPoNumChange" />
+                </view>
+            </mp-cell>
+            <mp-cell>
+                <view slot="title">每箱数量</view>
+                <view>
+                    <input class="weui-input" placeholder="填写每箱的数量" type="number" value="{{poUnitQty}}" placeholder-class="weui-input__placeholder" bindinput="bindPoUnitQtyChange" />
                 </view>
             </mp-cell>
             <mp-cell title="元器件类型">

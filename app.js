@@ -16,7 +16,7 @@ App({
   globalData: {
     userInfo: null,
     customLogin: null,
-    publishDate: '法罗力 发布日期：2021-12-02',
+    publishDate: '法罗力 发布日期：2025-04-28',
     openid: ""
   }
 })

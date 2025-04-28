@@ -16,7 +16,9 @@
         "iconPath2": "images/tabbar_icon_po_search_default.png",
         "selectedIconPath2": "images/tabbar_icon_po_search_active.png",
         "iconPath3": "images/tabbar_icon_po_check_default.png",
-        "selectedIconPath3": "images/tabbar_icon_po_check_active.png"
+        "selectedIconPath3": "images/tabbar_icon_po_check_active.png",
+        "iconPath4": "images/tabbar_icon_box_check_default.png",
+        "selectedIconPath4": "images/tabbar_icon_box_check_active.png"
     },
     "dark": {
         "navBgColor": "#191919",
@@ -35,6 +37,8 @@
         "iconPath2": "images/tabbar_icon_po_search_default.png",
         "selectedIconPath2": "images/tabbar_icon_po_search_active.png",
         "iconPath3": "images/tabbar_icon_po_check_default.png",
-        "selectedIconPath3": "images/tabbar_icon_po_check_active.png"
+        "selectedIconPath3": "images/tabbar_icon_po_check_active.png",
+        "iconPath4": "images/tabbar_icon_box_check_default.png",
+        "selectedIconPath4": "images/tabbar_icon_box_check_active.png"
     }
 }

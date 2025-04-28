@@ -27,6 +27,7 @@ Page({
         itemName: "",
         materiel: null,
         poNum: 0,
+        poUnitQty: 0,
         poRemark: "",
         savedSuccess: false,
         savedDialog: false,
@@ -55,6 +56,12 @@ Page({
     bindPoNumChange(e) {
         this.setData({
             poNum: e.detail.value
+        })
+    },
+
+    bindPoUnitQtyChange(e) {
+        this.setData({
+            poUnitQty: e.detail.value
         })
     },
 
@@ -112,6 +119,7 @@ Page({
                 itemCode: "",
                 itemName: "",
                 poNum: 0,
+                poUnitQty: 0,
                 poRemark: ""
             });
         }
@@ -155,10 +163,18 @@ Page({
             return
         }
 
+        if (this.data.poUnitQty <= 0) {
+            showToast({
+                title: "麻烦把数量填一下"
+            });
+            return
+        }
+
         const poIsBatch = this.data.poIsBatch
         const poCusNo = app.globalData.customLogin.cusNo
         const poPrdNoPart = this.data.itemCode
         const poNum = this.data.poNum
+        const poUnitQty = this.data.poUnitQty
         const poEmpId = app.globalData.customLogin.empId
         const poSelData = this.data.dtSelected
         const poRemark = this.data.poRemark
@@ -167,6 +183,7 @@ Page({
             poCusNo,
             poPrdNoPart,
             poNum,
+            poUnitQty,
             poEmpId,
             poSelData,
             poRemark

@@ -1,48 +1,59 @@
 {
-  "pages": [
-    "pages/launchScreen/launchScreen",
-    "pages/login/login",
-    "pages/partOrder/partOrder",
-    "pages/partOrderSearch/partOrderSearch",
-    "pages/partOrderCheck/partOrderCheck"
-  ],
-  "window": {
-    "navigationBarBackgroundColor": "@navBgColor",
-    "navigationBarTitleText": "法罗力",
-    "navigationBarTextStyle": "@navTxtStyle",
-    "backgroundTextStyle": "@bgTxtStyle",
-    "backgroundColorTop": "@bgColorTop",
-    "backgroundColorBottom": "@bgColorBottom"
-  },
-  "darkmode": true,
-  "themeLocation": "theme.json",
-  "useExtendedLib": {
-    "kbone": true,
-    "weui": true
-  },
-  "tabBar": {
-    "color": "@tabFontColor",
-    "selectedColor": "@tabSelectedColor",
-    "borderStyle": "@tabBorderStyle",
-    "backgroundColor": "@tabBgColor",
-    "list": [{
-      "text": "生成",
-      "pagePath": "pages/partOrder/partOrder",
-      "iconPath": "@iconPath1",
-      "selectedIconPath": "@selectedIconPath1"
-    }, {
-      "text": "查询",
-      "pagePath": "pages/partOrderSearch/partOrderSearch",
-      "iconPath": "@iconPath2",
-      "selectedIconPath": "@selectedIconPath2"
-    }, {
-      "text": "检查",
-      "pagePath": "pages/partOrderCheck/partOrderCheck",
-      "iconPath": "@iconPath3",
-      "selectedIconPath": "@selectedIconPath3"
-    }]
-  },
-  "lazyCodeLoading": "requiredComponents",
-  "style": "v2",
-  "sitemapLocation": "sitemap.json"
+    "pages": [
+        "pages/launchScreen/launchScreen",
+        "pages/login/login",
+        "pages/partOrder/partOrder",
+        "pages/partOrderSearch/partOrderSearch",
+        "pages/partOrderCheck/partOrderCheck",
+        "pages/partOrderBoxCheck/partOrderBoxCheck"
+    ],
+    "window": {
+        "navigationBarBackgroundColor": "@navBgColor",
+        "navigationBarTitleText": "法罗力",
+        "navigationBarTextStyle": "@navTxtStyle",
+        "backgroundTextStyle": "@bgTxtStyle",
+        "backgroundColorTop": "@bgColorTop",
+        "backgroundColorBottom": "@bgColorBottom"
+    },
+    "darkmode": true,
+    "themeLocation": "theme.json",
+    "useExtendedLib": {
+        "kbone": true,
+        "weui": true
+    },
+    "tabBar": {
+        "color": "@tabFontColor",
+        "selectedColor": "@tabSelectedColor",
+        "borderStyle": "@tabBorderStyle",
+        "backgroundColor": "@tabBgColor",
+        "list": [
+            {
+                "text": "生成",
+                "pagePath": "pages/partOrder/partOrder",
+                "iconPath": "@iconPath1",
+                "selectedIconPath": "@selectedIconPath1"
+            },
+            {
+                "text": "查询",
+                "pagePath": "pages/partOrderSearch/partOrderSearch",
+                "iconPath": "@iconPath2",
+                "selectedIconPath": "@selectedIconPath2"
+            },
+            {
+                "text": "一物一码",
+                "pagePath": "pages/partOrderCheck/partOrderCheck",
+                "iconPath": "@iconPath3",
+                "selectedIconPath": "@selectedIconPath3"
+            },
+            {
+                "text": "箱码检查",
+                "pagePath": "pages/partOrderBoxCheck/partOrderBoxCheck",
+                "iconPath": "@iconPath4",
+                "selectedIconPath": "@selectedIconPath4"
+            }
+        ]
+    },
+    "lazyCodeLoading": "requiredComponents",
+    "style": "v2",
+    "sitemapLocation": "sitemap.json"
 }
