@@ -41,15 +41,21 @@
         "minifyWXML": true,
         "showES6CompileOption": false,
         "useCompilerPlugins": false,
-        "useStaticServer": true
+        "useStaticServer": true,
+        "compileWorklet": false,
+        "localPlugins": false,
+        "condition": false,
+        "swc": false,
+        "disableSWC": true
     },
     "compileType": "miniprogram",
-    "libVersion": "2.20.0",
+    "libVersion": "development",
     "appid": "wx29f41032b79709ce",
     "projectname": "FerroliCrmWeChatProject",
     "condition": {},
     "editorSetting": {
         "tabIndent": "insertSpaces",
         "tabSize": 4
-    }
+    },
+    "simulatorPluginLibVersion": {}
 }

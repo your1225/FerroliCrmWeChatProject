@@ -1,0 +1,23 @@
+<!--pages/scanState/scanState.wxml-->
+<view class="top">
+  <image src="{{imageUrl}}ferroli_logo_green.png" mode="heightFix" style="height: 30rpx;" />
+  <text class="top-text">法罗力 - 生产追溯看板</text>
+</view>
+<view class="title">
+  <text class="title-text" style="width: 100rpx;">产品编码</text>
+  <text class="title-text" style="width: {{productNameHeight}}rpx;">产品名称</text>
+  <text class="title-text" style="width: 60rpx;background-color: aqua;">生产扫描数量</text>
+  <text class="title-text" style="width: 60rpx;background-color: red;">规定BOM数量</text>
+  <text class="title-text" style="width: 60rpx;background-color: aqua;">零部件应扫</text>
+  <text class="title-text" style="width: 60rpx;background-color: red;">零部件实扫</text>
+  <text class="title-text" style="width: 60rpx;background-color: aqua;">零部件比例</text>
+</view>
+<view wx:for="{{disList}}" wx:key="productCode">
+  <text class="data-text" style="width: 100rpx;">{{item.productCode}}</text>
+  <text class="data-text" style="width: {{productNameHeight}}rpx;">{{item.productName}}</text>
+  <text class="data-text" style="width: 60rpx;">{{item.productCount}}</text>
+  <text class="data-text" style="width: 60rpx;">{{item.bomCount}}</text>
+  <text class="data-text" style="width: 60rpx;">{{item.partMustCount}}</text>
+  <text class="data-text" style="width: 60rpx;">{{item.partScanCount}}</text>
+  <text class="data-text" style="width: 60rpx;">{{item.partScanPercent}}</text>
+</view>

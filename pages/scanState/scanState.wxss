@@ -1,0 +1,48 @@
+/* pages/scanState/scanState.wxss */
+page {
+  background-color: #A2D989;
+
+  /* padding: constant(safe-area-inset-top) constant(safe-area-inset-right) constant(safe-area-inset-bottom) constant(safe-area-inset-left);
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); */
+}
+
+.top {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.top-text {
+  color: #055902;
+  margin-left: 10rpx;
+  font-size: 20rpx;
+  font-weight: bold;  
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.title-text {
+  color: #034001;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroll-list {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.data-text {
+  color: #034001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
