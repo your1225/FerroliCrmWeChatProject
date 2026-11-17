@@ -18,7 +18,7 @@ App({
     imageUrl: 'https://barcode.ferroli.com.cn:9022/FerroliFile/WeChat/',
     userInfo: null,
     customLogin: null,
-    publishDate: '法罗力 发布日期 2025-04-28',
+    publishDate: '法罗力 发布日期 2026-11-17',
     openid: ""
   }
 })
