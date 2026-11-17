@@ -7,7 +7,7 @@
           {{cusName}}
         </view>
         <view slot="footer">
-          <button type="primary" size="mini" plain="true" bindtap="handleExitLogin">退出</button>
+          <button type="warn" size="mini" plain="true" bindtap="handleExitLogin">退出</button>
         </view>
       </mp-cell>
     </mp-cells>
