@@ -15,22 +15,6 @@ export const getSetting = () => {
 }
 
 /**
- * promise 形式的 chooseAddress
- */
-export const chooseAddress = () => {
-    return new Promise((resolve, reject) => {
-        wx.chooseAddress({
-            success: (result) => {
-                resolve(result);
-            },
-            fail: (err) => {
-                reject(err);
-            }
-        });
-    })
-}
-
-/**
  * promise 形式的 openSetting
  */
 export const openSetting = () => {
